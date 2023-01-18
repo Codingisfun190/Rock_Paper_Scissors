@@ -2,7 +2,7 @@ const choices = document.querySelectorAll('.choice')
 const score = document.getElementById('score')
 const result = document.getElementById('result')
 const restart = document.getElementById('restart')
-const modal = document.querySelector('modal')
+const modal = document.querySelector('.modal')
 const scoreboard = {
   player: 0,
   computer: 0
@@ -89,5 +89,24 @@ function showWinner(winner, computerChoice) {
   modal.style.display = 'block'
 }
 
+// Restart game
+function restartGame() {
+  scoreboard.player = 0
+  scoreboard.computer = 0
+  score.innerHTML = `
+    <p>Player: 0</p>
+    <p>Computer: 0</p>
+  `
+}
+
+// Clear modal
+function clearModal(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none'
+  }
+}
+
 // Event listeners
 choices.forEach((choice) => choice.addEventListener('click', play))
+window.addEventListener('click', clearModal)
+restart.addEventListener('click', restartGame)
