@@ -75,6 +75,9 @@ function showWinner(winner, computerChoice) {
       <p>Computer chose <strong>${computerChoice}</strong></p>
     `
   } else {
+    // Inc draw score
+    scoreboard.draw++
+    // Show modal results
     result.innerHTML = `
       <h1>It's a Draw</h1>
       <i class="fas fa-hand-${computerChoice} fa-10x"></i>
@@ -85,6 +88,7 @@ function showWinner(winner, computerChoice) {
   score.innerHTML = `
     <p>Player: ${scoreboard.player}</p>
     <p>Computer: ${scoreboard.computer}</p>
+    <p>Draw: ${scoreboard.draw}</p>
   `
 
   modal.style.display = 'block'
@@ -94,9 +98,11 @@ function showWinner(winner, computerChoice) {
 function restartGame() {
   scoreboard.player = 0
   scoreboard.computer = 0
+  scoreboard.draw = 0
   score.innerHTML = `
     <p>Player: 0</p>
     <p>Computer: 0</p>
+    <p>Draw: 0</p>
   `
 }
 
