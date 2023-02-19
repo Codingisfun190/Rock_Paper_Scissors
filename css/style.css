@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
   --primary-color: #003699;
@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   background: #fff;
   color: #333;
@@ -34,7 +34,7 @@ body {
   display: none;
   background: var(--light-color);
   color: #333;
-  padding: .4 rem 1.3rem;
+  padding: 0.4rem 1.3rem;
   font-size: 1rem;
   cursor: pointer;
   outline: none;
@@ -59,7 +59,7 @@ body {
 .score {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  font-size: 1.2 rem;
+  font-size: 1.2rem;
   color: #fff;
 }
 
@@ -84,24 +84,68 @@ body {
 }
 
 .choice:hover {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 .text-win {
-  color: var(--win-color)
+  color: var(--win-color);
 }
 
 .text-lose {
-  color: var(--lose-color)
+  color: var(--lose-color);
 }
 
-@media(max-width: 700px) {
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  text-align: center;
+  margin: 10% auto;
+  width: 350px;
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+
+.modal-content h1 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 700px) {
   .choice {
     font-size: 110px;
   }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
   .choice {
     font-size: 80px;
   }
